@@ -20,9 +20,9 @@
 <!-- PROJECT DESCRIPTION -->
 
 # 📖OOP School Library <a name="about-project"></a>
-OOP School Library is a project that users can add a new student or a new teacher.
 
-**OOP School Library**
+**OOP School Library is a project that users can add a new student or a new teacher.**
+
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -113,6 +113,6 @@ I would like to thank for Microverse to provide this opportunity for us.
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
+This project is [MIT](./LICENCE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
