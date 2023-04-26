@@ -1,4 +1,4 @@
-require_relative 'nameable.rb'
+require_relative 'nameable'
 require_relative 'decorator'
 require_relative 'capitalize_decorator'
 require_relative 'trimmer_decorator'
@@ -31,8 +31,8 @@ class Person < Nameable
 end
 
 person = Person.new(age: 22, name: 'maximilianus')
-  puts person.correct_name
-  puts capitalizedPerson = CapitalizeDecorator.new(person)
-  puts capitalizedPerson.correct_name
-  puts capitalizedTrimmedPerson = TrimmerDecorator.new(capitalizedPerson)
-  puts capitalizedTrimmedPerson.correct_name
+puts person.correct_name
+puts capitalizedPerson = CapitalizeDecorator.new(person)
+puts capitalizedPerson.correct_name
+puts capitalizedTrimmedPerson = TrimmerDecorator.new(capitalizedPerson)
+puts capitalizedTrimmedPerson.correct_name
