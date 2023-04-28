@@ -14,11 +14,11 @@ class App
   end
 
   def list_all_books
-    if @book.empty?
+    if @books.empty?
       puts 'Oops! No book, please add a book'
       return
     end
-    @book.each do |book|
+    @books.each do |book|
       puts "Title: #{book.title}, Author: #{book.author}"
     end
   end
@@ -52,7 +52,7 @@ class App
     name = gets.chomp
 
     print 'Age:'
-    age = gets.chomp.to_1
+    age = gets.chomp.to_i
 
     print 'Has parent permission? [Y/N]'
     parent_permission = gets.chomp.downcase
@@ -63,7 +63,7 @@ class App
   end
 
   def create_teacher
-    puts 'Name'
+    puts 'Name:'
     name = gets.chomp
 
     print 'Age:'
@@ -80,14 +80,14 @@ class App
     print 'Titile:'
     title = gets.chomp
 
-    pring 'Author:'
-    author = get.chomp
+    print 'Author:'
+    author = gets.chomp
 
     @books << Book.new(title, author)
     puts 'Book created successfully'
   end
 
-    def create_rental
+  def create_rental
       puts 'Please select a book from the following list by number'
       @books.each_with_index do |book, index|
         puts "#{index}) Title: #{book.title}, Author: #{book.author}"
