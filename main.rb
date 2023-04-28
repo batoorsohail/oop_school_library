@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/cyclomatic_complexity
 require_relative 'app'
 
 class Main
@@ -43,3 +44,4 @@ end
 
 main = Main.new
 main.menu
+# rubocop:enable Metrics/cyclomatic_complexity
