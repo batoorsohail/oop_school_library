@@ -15,7 +15,7 @@ class App
 
   def list_all_books
     if @books.empty?
-      puts 'Oops! No book, please add a book'
+      puts 'No book added, please add a new book'
       return
     end
     @books.each do |book|
@@ -25,7 +25,7 @@ class App
 
   def list_all_people
     if @people.empty?
-      puts 'Oops! No people, please add people'
+      puts 'No people registered, please add new people'
       return
     end
     @people.each do |person|
@@ -34,7 +34,7 @@ class App
   end
 
   def create_person
-    puts 'Do you want to create a student or a teacher?'
+    puts 'Do you want to create a teacher or student? Enter 1 for the student and 2 for teacher.'
     option = gets.chomp
 
     case option
@@ -48,7 +48,7 @@ class App
   end
 
   def create_student
-    puts 'Name:'
+    print 'Name:'
     name = gets.chomp
 
     print 'Age:'
@@ -88,14 +88,14 @@ class App
   end
 
   def create_rental
-    puts 'Please select a book from the following list by number'
+    puts 'Please select a book from the following list by number:'
     @books.each_with_index do |book, index|
       puts "#{index}) Title: #{book.title}, Author: #{book.author}"
     end
 
     book_id = gets.chomp.to_i
 
-    puts 'Please select a person from the following list by number (not ID)'
+    puts 'Please select a person from the following list by number (not ID):'
     @people.each_with_index do |person, index|
       puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
