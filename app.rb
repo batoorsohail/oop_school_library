@@ -68,6 +68,13 @@ class App
     puts 'Book created successfully'
   end
 
+  def select_book
+    list_all_books
+    puts 'Select a book index from the above list by number: '
+    book_id = gets.chomp.to_i
+    @books[book_id]
+  end
+
   def create_rental
     puts 'Please select a book from the following list by number:'
     @books.each_with_index do |book, index|
