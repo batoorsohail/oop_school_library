@@ -76,17 +76,18 @@ class App
   end
 
   def select_person
-    people_list
+    list_all_people
     puts 'Select a person index from the above list by number: '
     person_id = gets.chomp.to_i
     @people[person_id]
   end
 
   def create_rental
-    print 'Date:'
+    rented_book = select_book
+    renter = select_person
+    print 'Date: (YYYY-MM-DD)'
     date = gets.chomp
-
-    @rentals << Rental.new(date, @people[person_id], @books[book_id])
+    @rentals << Rental.new(date, renter, rented_book)
     puts 'Rental created successfully'
   end
 
