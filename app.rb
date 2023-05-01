@@ -75,21 +75,14 @@ class App
     @books[book_id]
   end
 
-  def create_rental
-    puts 'Please select a book from the following list by number:'
-    @books.each_with_index do |book, index|
-      puts "#{index}) Title: #{book.title}, Author: #{book.author}"
-    end
-
-    book_id = gets.chomp.to_i
-
-    puts 'Please select a person from the following list by number (not ID):'
-    @people.each_with_index do |person, index|
-      puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
-    end
-
+  def select_person
+    people_list
+    puts 'Select a person index from the above list by number: '
     person_id = gets.chomp.to_i
+    @people[person_id]
+  end
 
+  def create_rental
     print 'Date:'
     date = gets.chomp
 
