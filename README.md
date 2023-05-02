@@ -109,7 +109,7 @@ If you like this project please give it a start.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank for Microverse to provide this opportunity for us.
+I would like to thank my coding partner [Victoria Tumwebaze](https://github.com/Victoria129) for helping me during this project, and Microverse for providing this opportunity for us.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
