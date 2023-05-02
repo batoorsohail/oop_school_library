@@ -75,6 +75,10 @@ Run the `person.rb` file
 - Twitter: [@twitter](https://twitter.com/sohailBatoor)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/sohail-batoor-52429b230/)
 
+### 👤 **Victoria Tumwebaze**
+- GitHub: [GutHub](https://github.com/Victoria129)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/victoria-tumwebaze/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
