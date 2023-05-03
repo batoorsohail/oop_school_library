@@ -1,4 +1,4 @@
-# rubocop:disable Metrics/cyclomatic_complexity
+# /cyclomatic_complexity
 require_relative 'app'
 
 def main
@@ -55,4 +55,4 @@ end
 
 main
 
-# rubocop:enable Metrics/cyclomatic_complexity
+# /cyclomatic_complexity
