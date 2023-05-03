@@ -4,6 +4,7 @@ require_relative 'teacher'
 require_relative 'classroom'
 require_relative 'book'
 require_relative 'rental'
+require_relative 'readfile'
 
 class App
   def initialize
@@ -68,25 +69,26 @@ class App
     puts 'Book created successfully'
   end
 
-  def create_rental
-    puts 'Please select a book from the following list by number:'
-    @books.each_with_index do |book, index|
-      puts "#{index}) Title: #{book.title}, Author: #{book.author}"
-    end
-
+  def select_book
+    list_all_books
+    puts 'Select a book index from the above list by number: '
     book_id = gets.chomp.to_i
+    @books[book_id]
+  end
 
-    puts 'Please select a person from the following list by number (not ID):'
-    @people.each_with_index do |person, index|
-      puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
-    end
-
+  def select_person
+    list_all_people
+    puts 'Select a person index from the above list by number: '
     person_id = gets.chomp.to_i
+    @people[person_id]
+  end
 
-    print 'Date:'
+  def create_rental
+    rented_book = select_book
+    renter = select_person
+    print 'Date: (YYYY-MM-DD)'
     date = gets.chomp
-
-    @rentals << Rental.new(date, @people[person_id], @books[book_id])
+    @rentals << Rental.new(date, renter, rented_book)
     puts 'Rental created successfully'
   end
 

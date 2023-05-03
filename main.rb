@@ -20,6 +20,7 @@ class Main
       option = gets.chomp
 
       def execute_option(option)
+      end
       case option
       when '1'
         List.list_books(@books)
