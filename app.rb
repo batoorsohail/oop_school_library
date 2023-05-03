@@ -4,27 +4,28 @@ require_relative 'teacher'
 require_relative 'classroom'
 require_relative 'book'
 require_relative 'rental'
-require_relative 'readfile'
+require_relative './data/data-handler'
 
 class App
   def initialize
-    @people = ReadFile.load_people
-    @books = ReadFile.load_books
-    @rentals = ReadFile.load_rentals(@books, @people)
-    @classroom = Classroom.new('Grade 10')
+    @people = read_data('./data/people.json')
+    @books = read_data('./data/books.json')
+    @rentals = read_data('./data/rentals.json')
   end
 
   def list_all_books
+    @books = read_data('./data/books.json')
     puts 'There are no books in the list' if @books.empty?
     @books.each_with_index do |book, index|
-      puts "#{index} - Title: #{book.title.capitalize}, Author: #{book.author.capitalize}"
+      puts "#{index} - Title: #{book['title'].capitalize}, Author: #{book['author'].capitalize}"
     end
   end
 
   def list_all_people
+    @people = read_data('./data/people.json')
     puts 'There are no people in the list' if @people.empty?
     @people.each_with_index do |person, index|
-      puts "#{index} - [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      puts "#{index} - #{person['class']} Name: #{person['name']}, ID: #{person['id']}, Age: #{person['age']}"
     end
   end
 
@@ -48,15 +49,16 @@ class App
   def create_student(name, age)
     print 'Has parent permission? [Y/N]'
     parent_permission = gets.chomp.downcase
-    student = Student.new(age, parent_permission == 'y', name)
-    @people << student
+    @people.push Student.new(age, parent_permission, name)
+    write_data(@people, './data/people.json')
     puts 'Student created successfully'
   end
 
   def create_teacher(name, age)
     print 'Specialization:'
     specialization = gets.chomp
-    @people << Teacher.new(age, specialization, name)
+    @people.push Teacher.new(name, age, specialization)
+    write_data(@people, './data/people.json')
     puts 'Teacher created successfully'
   end
 
@@ -65,7 +67,8 @@ class App
     title = gets.chomp
     print 'Author:'
     author = gets.chomp
-    @books << Book.new(title, author)
+    @books.push Book.new(title, author)
+    write_data(@books, './data/books.json')
     puts 'Book created successfully'
   end
 
@@ -86,21 +89,41 @@ class App
   def create_rental
     rented_book = select_book
     renter = select_person
-    print 'Date: (YYYY-MM-DD)'
+    puts 'Enter a date as (YYYY-MM-DD): '
     date = gets.chomp
-    @rentals << Rental.new(date, renter, rented_book)
+    @rentals.push Rental.new(date, rented_book, renter)
+    write_data(@rentals, './data/rentals.json')
     puts 'Rental created successfully'
   end
 
-  def list_rentals
-    print 'ID of person:'
-    id = gets.chomp.to_i
+  def rental_list
+    @rentals = read_data('./data/rentals.json') || []
+    list_all_people
+    puts 'Enter ID of person: '
+    renter_id = gets.chomp.to_i
 
-    rentals = @rentals.filter { |rental| rental.person.id == id }
+    if rentals_empty?
+      puts 'Rental is empty'
+    else
+      rentals_for_person = @rentals.select do |rental|
+        rental_for_person?(rental, renter_id)
+      end
 
-    puts 'Rentals:'
-    rentals.each do |rental|
-      puts "Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}"
+      if rentals_for_person.empty?
+        puts 'No rentals found for the given person'
+      else
+        rentals_for_person.each do |rental|
+          puts "Rental date: #{rental['date']}, Book: #{rental['book']['title']} by #{rental['book']['author']}"
+        end
+      end
     end
+  end
+
+  def rentals_empty?
+    @rentals.nil? || @rentals.empty?
+  end
+
+  def rental_for_person?(rental, renter_id)
+    rental['person'] && rental['person']['id'] == renter_id && rental['book']
   end
 end
