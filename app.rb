@@ -4,7 +4,7 @@ require_relative 'teacher'
 require_relative 'classroom'
 require_relative 'book'
 require_relative 'rental'
-require_relative './data/data-handler'
+require_relative './data/data_handler'
 
 class App
   def initialize
