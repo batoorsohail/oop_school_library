@@ -19,24 +19,22 @@ class Main
       puts '7 - Exit'
       option = gets.chomp
 
+      def execute_option(option)
       case option
       when '1'
-        @app.list_all_books
+        List.list_books(@books)
       when '2'
-        @app.list_all_people
+        List.list_people(@people)
       when '3'
-        @app.create_person
+        Create.create_person(@people)
       when '4'
-        @app.create_book
+        Create.create_book(@books)
       when '5'
-        @app.create_rental
+        Create.create_rental(@people, @books, @rentals)
       when '6'
-        @app.list_rentals
-      when '7'
-        puts 'Thank you for using our library ¯\^-^/¯'
-        return
+        List.list_rentals(@people)
       else
-        puts 'Please enter a number between 1 and 7'
+        Storage.save_all(@people, @books, @rentals)
       end
     end
   end

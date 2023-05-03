@@ -7,9 +7,9 @@ require_relative 'rental'
 
 class App
   def initialize
-    @people = []
-    @books = []
-    @rentals = []
+    @people = ReadFile.load_people
+    @books = ReadFile.load_books
+    @rentals = ReadFile.load_rentals(@books, @people)
     @classroom = Classroom.new('Grade 10')
   end
 
