@@ -13,8 +13,8 @@ describe Book do
     it 'Add a rental book' do
       book = Book.new('Book', 'Author')
       teacher = Teacher.new(29, 'Ruby', 'Ahmad')
-      rental = book.add_rental('2021-10-12', teacher)
-      expect(rental).to be_a Rental
+      rental_book = book.add_rental(teacher, '2021-10-12')
+      expect(rental_book ).to be_a Rental
     end
 
     it 'returns a hash with the correct keys and values' do
