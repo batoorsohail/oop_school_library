@@ -18,7 +18,7 @@ class Student < Person
       age: @age,
       name: @name,
       parent_permission: @parent_permission,
-      rentals: @rentals,
+      rentals: @rentals
     }
   end
 end

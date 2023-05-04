@@ -29,7 +29,7 @@ describe Person do
 
     it 'Returns true if age is > 18' do
       person = Person.new(18, 'John')
-      expect(person.age).to eq (18)
+      expect(person.age).to eq(18)
     end
   end
 end
