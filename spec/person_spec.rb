@@ -2,7 +2,7 @@ require './person'
 require './book'
 require './rental'
 
-describe 'Create new person' do
+describe Person do
   context 'Add teacher or person' do
     it 'Returns age and name of the person' do
       person = Person.new(20, 'Jacob')
@@ -29,7 +29,7 @@ describe 'Create new person' do
 
     it 'Returns true if age is > 18' do
       person = Person.new(18, 'John')
-      expect(person.age).to eq (18)
+      expect(person.age).to eq(18)
     end
   end
 end

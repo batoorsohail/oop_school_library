@@ -2,7 +2,7 @@ require './book'
 require './rental'
 require './teacher'
 
-describe Book do 
+describe Book do
   context 'Create book' do
     it 'Add book title and book author' do
       book = Book.new('Book', 'Author')

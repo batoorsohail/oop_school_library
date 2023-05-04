@@ -38,7 +38,11 @@
 
 ### Key Features <a name="key-features"></a>
 
-**Users can add new students or teachers.**
+- **User can create a student**
+- **User can create a teacher**
+- **User can create a book**
+- **User can create rental book**
+- **User can list all students, teachers, books, and rentals book**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
