@@ -23,7 +23,7 @@ describe Person do
     it 'Add a rental book for a person' do
       book = Book.new('Book', 'Author')
       person = Person.new('Ruby', 'Ahmad')
-      rental = book.add_rental('2021-10-12', person)
+      rental = book.add_rental(person, '2021-10-12')
       expect(rental).to be_a Rental
     end
 
