@@ -1,5 +1,5 @@
-require_relative '../student'
-require_relative '../classroom'
+require_relative './student'
+require_relative './classroom'
 
 describe Classroom do
   before :each do
@@ -15,7 +15,7 @@ describe Classroom do
 
   context 'add student to classsroom' do
     it 'student added to class' do
-      @classroom.add_student(Student.new(19, nil, 'Student1'))
+      @classroom.add_student(Student.new(1, nil, 'Student1'))
       expect(@classroom.students.length).to eq(1)
     end
   end
