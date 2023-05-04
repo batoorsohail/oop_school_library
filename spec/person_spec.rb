@@ -2,7 +2,7 @@ require './person'
 require './book'
 require './rental'
 
-describe 'Create new person' do
+describe Person do
   context 'Add teacher or person' do
     it 'Returns age and name of the person' do
       person = Person.new(20, 'Jacob')
