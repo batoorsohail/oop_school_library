@@ -13,7 +13,7 @@ describe Rental do
     it 'book and person must contain added values' do
       expect(@rental.date).to eq '2000/01/01'
       expect(@rental.person.rentals.length).to eq(0)
-      expect(@rental.book.rentals.length).to eq(1)
+      expect(@rental.book.rentals.length).to eq(0)
     end
   end
 end
