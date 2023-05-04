@@ -8,7 +8,7 @@ describe Classroom do
 
   context 'classroom test' do
     it 'classroom label should be "Classroom 1"' do
-      expect(@classroom.student.length).to eq(0)
+      expect(@classroom.students.length).to eq(0)
       expect(@classroom.label).to eq 'Classroom 1'
     end
   end
@@ -16,7 +16,7 @@ describe Classroom do
   context 'add student to classsroom' do
     it 'student added to class' do
       @classroom.add_student(Student.new(1, nil, 'Student1'))
-      expect(@classroom.student.length).to eq(1)
+      expect(@classroom.students.length).to eq(1)
     end
   end
 end
