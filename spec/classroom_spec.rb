@@ -1,5 +1,5 @@
 require_relative '../student'
-require_relative './classroom'
+require_relative '../classroom'
 
 describe Classroom do
   before :each do
