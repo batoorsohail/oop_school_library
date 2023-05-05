@@ -7,9 +7,9 @@ class Rental
   def initialize(date, book, person)
     @date = date
     @book = book
-    book.rentals.push(self) if @book.is_a?(Book)
+    book.rentals.push(self)
     @person = person
-    person.rentals.push(self) if @person.is_a?(Person)
+    person.rentals.push(self)
   end
 
   def to_h
